@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MVP Test</string>
+    <string name="title_activity_main">MVP Test</string>
+    <string name="txt_books_list">Books List &amp; Keep Walking</string>
+    <string name="txt_some_title">Some title</string>
+    <string name="txt_step_counter">Step Counter</string>
+    <string name="start_value">0</string>
+    <string name="txt_start_pedometer">Start Pedometer</string>
+    <string name="txt_stop_pedometer">Stop Pedometer</string>
+    <string name="txt_pedometer_steps">Number of Steps: %d</string>
+    <string name="txt_chat_room">Chat Room</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default"
+        android:text="@string/txt_books_list"
+        android:textSize="@dimen/txt_size" />
+
+    <Button
+        android:id="@+id/btn_step_counter"
+        style="@style/ButtonCustom"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/padding_small"
+        android:text="@string/txt_step_counter" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/events_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/padding_default" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

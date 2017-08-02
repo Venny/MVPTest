@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        applicationId "com.example.vdimitrova.mvptest"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "baseUrl", "\"https://api.nytimes.com/\""
+            buildConfigField "String", "apiKey", "\"502b764bb3d643af81ad161a02a0ee3b\""
+
+            debuggable true
+        }
+
+        release {
+            buildConfigField "String", "baseUrl", "\"https://api.nytimes.com/\""
+            buildConfigField "String", "apiKey", "\"502b764bb3d643af81ad161a02a0ee3b\""
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+
+
+dependencies {
+    final SUPPORT_LIB_VERSION = '25.3.1'
+    final FBFLOW_LIB_VERSION = "4.0.2"
+    final RETROFIT_LIB_VERSION = "2.3.0"
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.github.Raizlabs.DBFlow', module: 'dbflow'
+    })
+
+    /* Support libraries*/
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIB_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIB_VERSION"
+    compile "com.android.support:recyclerview-v7:$SUPPORT_LIB_VERSION"
+    compile "com.android.support:cardview-v7:$SUPPORT_LIB_VERSION"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    /* Database */
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:$FBFLOW_LIB_VERSION"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:$FBFLOW_LIB_VERSION"
+    compile "com.github.Raizlabs.DBFlow:dbflow:$FBFLOW_LIB_VERSION"
+
+    /* Easy binding events, views etc. */
+    compile 'com.jakewharton:butterknife:8.5.1'
+
+
+    /* Retrofit */
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_LIB_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_LIB_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_LIB_VERSION"
+
+    /* Event Bus */
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    /* Handling Observables */
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+
+    /* Firebase */
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    compile 'com.google.firebase:firebase-auth:10.0.1'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+}
+
+
+apply plugin: 'com.google.gms.google-services'
